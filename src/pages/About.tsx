@@ -21,7 +21,7 @@ const About: React.FC = () => {
     useEffect(() => {
         const load = async () => {
             try {
-                const aboutRaw = await import('/portfolio/src/content/about/README.md?raw');
+                const aboutRaw = await import('../content/about/README.md?raw');
                 const raw = (aboutRaw && (aboutRaw as any).default) ? (aboutRaw as any).default : aboutRaw;
                 const { data } = parseFrontMatter(String(raw));
                 setMeta(data as AboutMeta);
