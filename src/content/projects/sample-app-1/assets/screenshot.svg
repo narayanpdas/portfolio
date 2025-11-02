@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="12" fill="#F6EFE7"/>
+  <rect x="24" y="24" width="240" height="120" rx="8" fill="#E7D9CC"/>
+  <rect x="24" y="160" width="480" height="20" rx="4" fill="#E7D9CC"/>
+  <rect x="24" y="196" width="380" height="16" rx="4" fill="#e0cdbd"/>
+  <rect x="24" y="228" width="300" height="14" rx="4" fill="#e8d9cc"/>
+  <circle cx="680" cy="80" r="46" fill="#C9A57A"/>
+  <text x="40" y="380" fill="#5a4b3a" font-size="20">Sample App One</text>
+</svg>
