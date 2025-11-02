@@ -16,10 +16,10 @@ const App: React.FC = () => {
         <main className="main-content">
           <Routes>
             <Route path="/portfolio/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/blog" element={<ThoughtProcesses />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/portfolio/projects" element={<Projects />} />
+            <Route path="/portfolio/blog" element={<ThoughtProcesses />} />
+            <Route path="/portfolio/blog/:slug" element={<BlogPost />} />
+            <Route path="/portfolio/about" element={<About />} />
           </Routes>
         </main>
       </div>
