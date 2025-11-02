@@ -26,7 +26,7 @@ const About: React.FC = () => {
                 const { data } = parseFrontMatter(String(raw));
                 setMeta(data as AboutMeta);
             } catch (err) {
-                console.error('Failed to load about metadata', err);
+                console.error(' Failed to load about metadata', err);
             } finally {
                 setLoading(false);
             }
