@@ -1,7 +1,7 @@
 ---
 title: "Hi Myself Narayan Prasad Das,"
-image: "/portfolio/src/content/about/assets/my_profile_pic.svg"
-resume: "/portfolio/src/content/about/assets/resume.pdf"
+image: "portfolio/public/content/about/assets/my_profile_pic.svg"
+resume: "portfolio/public/content/about/assets/resume.pdf"
 linkedin: "https://www.linkedin.com/in/narayan-prasad-das-85257b249/"
 github: "https://github.com/narayanpdas"
 x: "https://x.com/realnarayan_"

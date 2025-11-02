@@ -19,7 +19,7 @@ export async function getBlogPosts(forceRefresh = false): Promise<BlogPost[]> {
   
   try {
     // Using Vite's import.meta.glob to get all markdown files
-    const blogFiles = import.meta.glob('/src/content/blog/*.md', { 
+    const blogFiles = import.meta.glob('../../public/content/blog/*.md', { 
       query: '?raw',
       import: 'default'
     });
