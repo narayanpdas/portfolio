@@ -26,7 +26,8 @@ export async function getBlogPosts(forceRefresh = false): Promise<BlogPost[]> {
     
     for (const path in blogFiles) {
       const file = await blogFiles[path]();
-      const slug = path.replace('/src/content/blog/', '').replace('.md', '');
+      const filename = path.split('/').pop() || '';
+      const slug = filename.replace('.md', '');
       
       if (typeof file === 'string') {
         const { data, content } = parseFrontMatter(file);

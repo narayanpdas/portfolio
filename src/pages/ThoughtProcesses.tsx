@@ -56,15 +56,6 @@ const ThoughtProcesses: React.FC = () => {
         <div className="thought-processes">
             <div className="page-header">
                 <h1>My Mind-Map</h1>
-                {/* <div>
-                    <div className="loader">
-                        <span><span></span><span></span><span></span><span></span></span>
-                        <div className="base">
-                            <span></span>
-                            <div className="face"></div>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="blog-controls">
                     <input
                         type="search"
@@ -108,7 +99,7 @@ const ThoughtProcesses: React.FC = () => {
                                 <time aria-label={`Published ${new Date(post.date).toLocaleDateString()}`}>{new Date(post.date).toLocaleDateString()}</time>
                             </div>
                             <p className="excerpt">{post.excerpt}</p>
-                            <Link to={`/blog/${post.slug}`} className="read-more">
+                            <Link to={`/portfolio/blog/${post.slug}`} className="read-more">
                                 Read More
                             </Link>
                         </article>
