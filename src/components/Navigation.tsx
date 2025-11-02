@@ -6,16 +6,16 @@ const Navigation: React.FC = () => {
         <nav className="navigation">
             <ul>
                 <li>
-                    <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Home</NavLink>
+                    <NavLink to="/portfolio/home" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/projects" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Work</NavLink>
+                    <NavLink to="/portfolio/projects" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>Work</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/blog" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>My Thoughts</NavLink>
+                    <NavLink to="/portfolio/blog" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>My Thoughts</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>About</NavLink>
+                    <NavLink to="/portfolio/about" className={({ isActive }) => isActive ? 'nav-link nav-link--active' : 'nav-link'}>About</NavLink>
                 </li>
             </ul>
         </nav>
