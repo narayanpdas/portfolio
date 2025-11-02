@@ -15,7 +15,7 @@ export interface ProjectMeta {
 
 export async function loadProjects(): Promise<ProjectMeta[]> {
   // Single eager glob: look for README.md files under src/content/projects/**
-  const modules = import.meta.glob('../../public/content/projects/**/README.md?raw', { eager: true }) as Record<string, any>;
+  const modules = import.meta.glob('../content/projects/**/README.md?raw', { eager: true }) as Record<string, any>;
 
   const projects: ProjectMeta[] = [];
 
@@ -56,7 +56,7 @@ export async function loadProjects(): Promise<ProjectMeta[]> {
   }
 
   // Then attempt to import explicit sample READMEs to cover cases where glob misses them
-  for (const samplePath of ['../../public/content/projects/sample-app-1/README.md?raw', '../../public/content/projects/sample-app-2/README.md?raw']) {
+  for (const samplePath of ['../content/projects/sample-app-1/README.md?raw', '../content/projects/sample-app-2/README.md?raw']) {
     try {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
