@@ -61,13 +61,15 @@ const BlogPostPage: React.FC = () => {
                     <ReactMarkdown
                         components={{
                             img: ({ node, src, alt, ...props }) => (
+                                // <div style={{ justifySelf: "center" }}>
                                 <img
                                     src={src}
                                     alt={alt}
                                     loading="lazy"
-                                    style={{ maxWidth: '100%', height: 'auto' }}
+                                    style={{ maxWidth: '100%', height: 'auto', justifySelf: "center" }}
                                     {...props}
                                 />
+                                // </div>
                             ),
                             a: ({ node, href, children, ...props }) => (
                                 <a
@@ -84,8 +86,8 @@ const BlogPostPage: React.FC = () => {
                         {post.content}
                     </ReactMarkdown>
                 </div>
-            </article>
-        </div>
+            </article >
+        </div >
     );
 };
 
