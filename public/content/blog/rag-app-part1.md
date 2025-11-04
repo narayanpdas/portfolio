@@ -5,7 +5,7 @@ tags: ["RAG", "FastAPI", "React/ChakraUI", "Tensorflow", "Sqlitte"]
 excerpt: "How it all started."
 ---
 
-![motivation](assets/motivation.jpg)
+![motivation](content/blog/images/motivation.jpg)
 
 # The Motivation
 
