@@ -1,5 +1,5 @@
 ---
-title: "Hello! I'm Narayan Prasad Das,"
+title: "Hello! I'm Narayan,"
 image: "content/about/assets/my_profile_pic.svg"
 resume: "content/about/assets/resume.pdf"
 linkedin: "https://www.linkedin.com/in/narayan-prasad-das-85257b249/"
