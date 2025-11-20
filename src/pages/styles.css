@@ -229,3 +229,412 @@
     opacity: 0;
   }
 }
+
+/* ThoughtProcesses small UI refinements (coffee themed) */
+.thought-header-inner {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+  max-width: var(--blog-width);
+  width: 100%;
+  justify-content: center;
+}
+
+/* .coffee-decor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.thought-header-inner .coffee-mug {
+  width: 86px;
+  height: 100px;
+  transform: translateY(2px);
+}
+
+.disclaimer {
+  background: linear-gradient(
+    180deg,
+    rgba(237, 210, 189, 0.18),
+    rgba(255, 255, 255, 0.6)
+  );
+  border: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  color: var(--text-main);
+  max-width: min(85vw, 720px);
+  box-shadow: 0 6px 18px rgba(107, 79, 58, 0.04);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.disclaimer p {
+  margin-top: 0.35rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Make the mug eyes a bit friendlier with an outline and highlight */
+.coffee-mug__eye {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+.coffee-mug__pupil {
+  box-shadow: inset -1px -1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+}
+.coffee-mug__pupil::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  opacity: 0.95;
+}
+
+/* Reading book: make it look slightly open and animate on hover */
+.coffee-mug__book {
+  position: absolute;
+  left: 48%;
+  bottom: 40%;
+  /* initially lift the book slightly so it covers ~40% of the mug bottom */
+  /* transform: translateX(-50%) translateY(-20%) rotate(0deg); */
+  width: 58%;
+  height: 36%;
+  background: linear-gradient(180deg, #fff, #f7f3ee);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 14px rgba(43, 32, 15, 0.06);
+  display: flex;
+  z-index: 2;
+  overflow: hidden;
+  transition: transform 300ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 220ms;
+}
+
+.coffee-mug--reading:hover .coffee-mug__book {
+  /* on hover slide the book down to reveal more of the mug (20% down) and open slightly */
+  transform: translateX(-50%) translateY(10%) rotate(0deg) scale(1.05);
+  box-shadow: 0 10px 24px rgba(43, 32, 15, 0.09);
+}
+
+.coffee-mug__book .book-left {
+  transform: rotateY(8deg);
+  transform-origin: left center;
+}
+.coffee-mug__book .book-right {
+  transform: rotateY(-6deg);
+  transform-origin: right center;
+}
+
+/* small page lines on the right side */
+.coffee-mug__book .book-right::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  top: 16%;
+  right: 12%;
+  bottom: 16%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 100% 8px;
+  opacity: 0.7;
+}
+
+/* ensure book sits visually in front of mug face but behind handle where needed */
+.coffee-mug__book {
+  z-index: 2;
+}
+.coffee-mug--reading .coffee-mug__handle {
+  z-index: 0;
+}
+
+/* Improve disclaimer appearance */
+.disclaimer {
+  padding: 1rem 1.1rem;
+}
+.disclaimer strong {
+  color: var(--primary-dark);
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Search wrapper with icon */
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 520px;
+}
+.search-wrapper::before {
+  content: "\1F50D"; /* magnifying glass emoji as fallback icon */
+  position: absolute;
+  left: 10px;
+  /* padding-left: 1; */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--text-secondary) 60%, transparent);
+  pointer-events: none;
+}
+.blog-search {
+  padding-left: 10rem;
+  left: 50px;
+}
+
+/* subtle hover for controls */
+.blog-sort {
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.blog-sort:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(43, 32, 15, 0.04);
+}
+
+/* small entrance for mug/book */
+.thought-header-inner .coffee-mug {
+  transform-origin: center;
+  animation: mugEntrance 520ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+@keyframes mugEntrance {
+  from {
+    transform: translateY(6px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(2px) scale(1);
+    opacity: 1;
+  }
+}
+
+/* subtle entry animation for blog cards */
+@keyframes slideUp {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.blog-post-card {
+  animation: slideUp 420ms cubic-bezier(0.22, 0.9, 0.22, 1) both;
+}
+
+/* make read-more a button-like accent */
+.read-more {
+  color: var(--primary-color);
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease,
+    transform 160ms ease;
+}
+
+.read-more:hover {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 680px) {
+  .thought-header-inner {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .thought-header-inner .coffee-mug {
+    width: 70px;
+    height: 84px;
+  }
+  .disclaimer {
+    text-align: center;
+  }
+}
+
+/* Reading-variant mug styles (unique to ThoughtProcesses) */
+.coffee-mug--reading {
+  /* ensure relative positioning so child elements like handle/book position correctly */
+  position: relative;
+}
+
+/* make handle position relative to mug size so it lines up across pages */
+.coffee-mug__handle {
+  position: absolute;
+  /* use percentage sizing so the handle scales with mug size */
+  right: -12%; /* slightly outside the mug */
+  top: 62%;
+  width: 22%;
+  height: 40%;
+  border: 8px solid var(--primary-color);
+  border-left: 0;
+  border-radius: 0 25px 25px 0;
+  box-shadow: #372407;
+  background: transparent;
+  z-index: 1;
+}
+
+/* when mug is smaller inside the thought header, nudge handle using the modifier */
+.thought-header-inner .coffee-mug__handle {
+  /* slight nudge when the mug is placed in the header */
+  right: -14%;
+  top: 58%;
+  transform: scale(0.92);
+}
+
+/* specific adjustments for the reading variant to avoid overlapping the book */
+.coffee-mug--reading .coffee-mug__handle {
+  /* avoid overlapping the book: keep the handle behind the book element and push it outward */
+  right: -39%;
+  top: 29%;
+  transform: rotate(-6deg) scale(0.92);
+  z-index: 0;
+}
+
+/* Book element in front of the mug */
+.coffee-mug__book {
+  position: absolute;
+  left: 58%;
+  bottom: -10%;
+  /* keep the initial lifted state consistent here too */
+  transform: translateX(-50%) translateY(-20%);
+  width: 58%;
+  height: 36%;
+  background: linear-gradient(180deg, #ffffff, #f7f3ee);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 14px rgba(43, 32, 15, 0.06);
+  display: flex;
+  z-index: 2;
+  overflow: hidden;
+  transition: transform 300ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 220ms;
+}
+
+.coffee-mug__book .book-left,
+.coffee-mug__book .book-right {
+  flex: 1 1 50%;
+  height: 100%;
+}
+
+.coffee-mug__book .book-left {
+  background: linear-gradient(90deg, #fadab7, #fff 40%);
+  border-right: 1px solid
+    color-mix(in srgb, var(--border-color) 40%, transparent);
+}
+
+.coffee-mug__book .book-right {
+  background: linear-gradient(90deg, #ffffff, #fadab7 60%);
+}
+
+/* add a small page line detail */
+.coffee-mug__book::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  width: 2px;
+  background: color-mix(in srgb, var(--border-color) 30%, transparent);
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+@media (max-width: 680px) {
+  .coffee-mug__book {
+    left: 50%;
+    bottom: 14%;
+    width: 62%;
+    height: 30%;
+    transform: translateX(-50%) translateY(-18%);
+  }
+  .coffee-mug--reading .coffee-mug__handle {
+    right: -16%;
+    top: 52px;
+  }
+}
+
+/* Extra small screens: ensure mug, handle and book align and don't overlap */
+@media (max-width: 480px) {
+  .thought-header-inner {
+    align-items: center;
+    gap: 0rem;
+  }
+  .coffee-mug {
+    top: -7.5rem !important;
+    scale: 0.5 !important;
+    /* max-height: auto !important; */
+    gap: 0.1rem;
+  }
+  .coffee-decor {
+    /* top: 10rem !important; */
+    /* scale: 0.5 !important; */
+    max-height: 1rem;
+  }
+  .disclaimer {
+    top: -10rem !important;
+  }
+  .thought-header-inner .coffee-mug {
+    width: 84px !important;
+    height: 92px !important;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    transform: translateY(0) !important;
+  }
+
+  /* hide backdrop on very small screens to avoid layout crowding */
+  .thought-header-inner .coffee-mug::before {
+    display: none !important;
+  }
+
+  /* precise px-based handle positioning for small mug */
+  .thought-header-inner .coffee-mug__handle {
+    /* bring handle closer to mug on small screens */
+    margin-right: -20px !important;
+    margin-top: -20px !important;
+    width: 20px !important;
+    height: 34px !important;
+    border-width: 6px !important;
+    transform: none !important;
+    z-index: 1 !important;
+  }
+
+  .coffee-mug--reading .coffee-mug__handle {
+    /* reading variant: slightly pulled in to avoid floating far right */
+    right: -10px !important;
+    top: 46px !important;
+    transform: rotate(-6deg) scale(0.92) !important;
+    z-index: 1 !important;
+  }
+
+  /* move book slightly down and enlarge so it doesn't clip */
+  .coffee-mug__book {
+    left: 50% !important;
+    bottom: -6% !important;
+    width: 70% !important;
+    height: 36% !important;
+    transform: translateX(-50%) translateY(0%) !important;
+    z-index: 3 !important;
+  }
+
+  /* make search input taller and roomy on mobile */
+  .page-header .blog-controls {
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: stretch;
+  }
+  .blog-search {
+    padding-left: 3.6rem !important;
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.9rem !important;
+    font-size: 1.02rem !important;
+    border-radius: 12px !important;
+  }
+}

@@ -167,7 +167,7 @@
 
 .coffee-mug__handle {
   position: absolute;
-  right: -10px;
+  right: 0px;
   top: 70px;
   width: 25px;
   height: 40px;

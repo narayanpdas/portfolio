@@ -55,17 +55,42 @@ const ThoughtProcesses: React.FC = () => {
     return (
         <div className="thought-processes">
             <div className="page-header">
-                <h1>My Mind-Map</h1>
+                <div className="thought-header-inner" >
+                    <div className="coffee-decor" aria-hidden>
+                        <div className="coffee-mug coffee-mug--reading">
+                            <div className="coffee-mug__steam"></div>
+                            <div className="coffee-mug__steam"></div>
+                            <div className="coffee-mug__steam"></div>
+                            <div className="coffee-mug__body">
+                                <div className="coffee-mug__face">
+                                    <div className="coffee-mug__eye coffee-mug__eye--left"><i className="coffee-mug__pupil" /></div>
+                                    <div className="coffee-mug__eye coffee-mug__eye--right"><i className="coffee-mug__pupil" /></div>
+                                </div>
+                            </div>
+                            <div className="coffee-mug__book" aria-hidden>
+                                <div className="book-left" />
+                                <div className="book-right" />
+                            </div>
+                            <div className="coffee-mug__handle" />
+                        </div>
+                    </div>
+                    <div className="disclaimer">
+                        <strong>⚠️ Disclaimer:</strong>
+                        <p>This section is my personal scratchpad.
+                            I write here to crystallize my own thoughts and track my progress.
+                            If you find something useful, great! If you find something messy,
+                            that's just my<strong>"mind at work".</strong></p>
+                    </div>
+                </div>
                 <div className="blog-controls">
                     <input
                         type="search"
-                        placeholder="Search posts by title, tag or content..."
+                        placeholder="🔍 Search posts by title, tag or content..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         aria-label="Search blog posts"
                         className="blog-search"
                     />
-
                     <label htmlFor="sortOrder" className="visually-hidden">Sort posts</label>
                     <select
                         id="sortOrder"

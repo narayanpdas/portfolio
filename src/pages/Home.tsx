@@ -26,7 +26,7 @@ const Home: React.FC = () => {
                         <span className="coffee-mug__eye coffee-mug__eye--left">
                             <span className="coffee-mug__pupil" />
                         </span>
-                        <span className="coffee-mug__mouth" />
+                        {/* <span className="coffee-mug__mouth" /> */}
                         <span className="coffee-mug__eye coffee-mug__eye--right">
                             <span className="coffee-mug__pupil" />
                         </span>
@@ -37,9 +37,9 @@ const Home: React.FC = () => {
 
             <p style={{
                 textAlign: 'center', marginTop: '2rem',
-                fontWeight: "bold", fontFamily: "cursive",
+                fontWeight: "bold",
                 fontSizeAdjust: "from-font",
-                fontStyle: "italic",
+                // fontStyle: "italic",
                 fontSize: "1.4rem"
             }}>
                 Hi, I'm Narayan, a Backend-AI Engineer<br />
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
                 Before you explore the page, Here is a
             </p>
             <p style={{ textAlign: 'center', fontWeight: "bolder", fontSize: "1.4rem" }}>Cup of Coffee for You!</p>
-        </div>
+        </div >
     );
 };
 
