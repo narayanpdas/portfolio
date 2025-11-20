@@ -56,6 +56,13 @@ const ThoughtProcesses: React.FC = () => {
         <div className="thought-processes">
             <div className="page-header">
                 <div className="thought-header-inner" >
+                    <div className="disclaimer">
+                        <strong>⚠️ Disclaimer:</strong>
+                        <p>This section is my personal scratchpad.
+                            I write here to crystallize my own thoughts and track my progress.
+                            If you find something useful, great! If you find something messy,
+                            that's just my<strong>"mind at work".</strong></p>
+                    </div>
                     <div className="coffee-decor" aria-hidden>
                         <div className="coffee-mug coffee-mug--reading">
                             <div className="coffee-mug__steam"></div>
@@ -65,21 +72,15 @@ const ThoughtProcesses: React.FC = () => {
                                 <div className="coffee-mug__face">
                                     <div className="coffee-mug__eye coffee-mug__eye--left"><i className="coffee-mug__pupil" /></div>
                                     <div className="coffee-mug__eye coffee-mug__eye--right"><i className="coffee-mug__pupil" /></div>
+                                    <div className="coffee-mug__smile" aria-hidden />
                                 </div>
                             </div>
                             <div className="coffee-mug__book" aria-hidden>
-                                <div className="book-left" />
-                                <div className="book-right" />
+                                <div className="book-left">BL</div>
+                                <div className="book-right">OG</div>
                             </div>
                             <div className="coffee-mug__handle" />
                         </div>
-                    </div>
-                    <div className="disclaimer">
-                        <strong>⚠️ Disclaimer:</strong>
-                        <p>This section is my personal scratchpad.
-                            I write here to crystallize my own thoughts and track my progress.
-                            If you find something useful, great! If you find something messy,
-                            that's just my<strong>"mind at work".</strong></p>
                     </div>
                 </div>
                 <div className="blog-controls">

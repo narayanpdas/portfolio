@@ -29,6 +29,7 @@ const Home: React.FC = () => {
                             <span className="coffee-mug__eye coffee-mug__eye--right">
                                 <span className="coffee-mug__pupil" />
                             </span>
+                            <span className="coffee-mug__smile" aria-hidden />
                         </div>
                     </div>
                     <div className="coffee-mug__handle"></div>

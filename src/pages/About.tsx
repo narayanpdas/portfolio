@@ -40,8 +40,14 @@ const About: React.FC = () => {
             <div className="page-title page-title--center">
                 <h1>{'Who Am I?'}</h1>
             </div>
-
             <div className="about-card">
+                <div className="about-card__image">
+                    {meta?.image ? (
+                        <img src={meta.image} alt="Profile" className="about-profile-img" />
+                    ) : (
+                        <div className="avatar-placeholder" />
+                    )}
+                </div>
                 {loading && <Loader />}
                 <div className="about-card__content">
                     <h2>{meta?.title || 'About Me'}</h2>
@@ -79,13 +85,7 @@ const About: React.FC = () => {
                     )}
                 </div>
 
-                <div className="about-card__image">
-                    {meta?.image ? (
-                        <img src={meta.image} alt="Profile" className="about-profile-img" />
-                    ) : (
-                        <div className="avatar-placeholder" />
-                    )}
-                </div>
+
             </div>
         </div>
     );

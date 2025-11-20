@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { loadProjects } from '../utils/projectsUtils';
+import { loadProjects, getProjectContent } from '../utils/projectsUtils';
 import type { ProjectMeta } from '../utils/projectsUtils';
 import Loader from '../components/Loader';
+import ProjectModal from '../components/ProjectModal';
 
 const Projects: React.FC = () => {
     const [projects, setProjects] = useState<ProjectMeta[]>([]);
     const [loading, setLoading] = useState(true);
+    const [selected, setSelected] = useState<ProjectMeta | null>(null);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalContent, setModalContent] = useState<string | null>(null);
 
     useEffect(() => {
         let mounted = true;
@@ -39,7 +43,19 @@ const Projects: React.FC = () => {
                             : [];
 
                     return (
-                        <article key={p.slug || p.title} className="project-card card project-card--compact">
+                        <article key={p.slug || p.title} className="project-card card project-card--compact" onClick={async (e) => {
+                            // avoid opening modal when clicking action links
+                            const target = e.target as HTMLElement;
+                            if (target.closest('a') || target.tagName === 'A' || target.closest('.project-actions')) return;
+                            // load project README content and open modal
+                            setSelected(p);
+                            setModalOpen(true);
+                            setModalContent(null);
+                            if (p.slug) {
+                                const raw = await getProjectContent(p.slug);
+                                setModalContent(raw);
+                            }
+                        }}>
                             {p.image ? (
                                 <div className="project-thumb">
                                     <img src={p.image} alt={p.title} />
@@ -76,6 +92,17 @@ const Projects: React.FC = () => {
                     );
                 })}
             </div>
+            {/* Project modal state */}
+            <ProjectModal
+                open={modalOpen && !!selected}
+                onClose={() => { setModalOpen(false); setSelected(null); setModalContent(null); }}
+                title={selected?.title}
+                content={modalContent}
+                source={selected?.source}
+                demo={selected?.demo}
+                track={selected?.track}
+                tags={selected?.tags}
+            />
         </div>
     );
 };

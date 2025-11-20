@@ -846,7 +846,7 @@ h1 {
 /* About card styles */
 .about-card {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 320px 1fr;
   gap: 2rem;
   align-items: center;
   background: var(--background-light);

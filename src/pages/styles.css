@@ -322,16 +322,19 @@
 
 .coffee-mug__book .book-left {
   transform: rotateY(8deg);
+  text-align: center;
   transform-origin: left center;
 }
 .coffee-mug__book .book-right {
   transform: rotateY(-6deg);
   transform-origin: right center;
+  text-align: center;
 }
 
 /* small page lines on the right side */
 .coffee-mug__book .book-right::before {
-  content: "";
+  /* content: "BOO"; */
+
   position: absolute;
   left: 12%;
   top: 16%;
@@ -524,6 +527,45 @@
   height: 100%;
 }
 
+/* Add a small centered smile under the eyes. Kept subtle so eyes don't move visually. */
+.coffee-mug__face {
+  position: relative;
+}
+
+.coffee-mug__smile,
+.thought-processes .coffee-mug__smile {
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  /* reduced size so the smile stays subtle */
+  width: 20px;
+  height: 7px;
+  transform: translateX(-50%);
+  border-bottom: 1.6px solid rgba(255, 255, 255, 0.92);
+  border-radius: 0 0 75px 75px / 0 0 100% 100%;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+@media (max-width: 680px) {
+  .coffee-mug__smile,
+  .thought-processes .coffee-mug__smile {
+    width: 16px;
+    height: 6px;
+    top: 120%;
+    border-bottom-width: 1.2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coffee-mug__smile,
+  .thought-processes .coffee-mug__smile {
+    width: 14px !important;
+    height: 5px !important;
+    top: 120% !important;
+    border-bottom-width: 1px !important;
+  }
+}
 .coffee-mug__book .book-left {
   background: linear-gradient(90deg, #fadab7, #fff 40%);
   border-right: 1px solid
@@ -564,22 +606,19 @@
 /* Extra small screens: ensure mug, handle and book align and don't overlap */
 @media (max-width: 480px) {
   .thought-header-inner {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0rem;
+    gap: 5rem;
+    margin-top: -5rem;
   }
   .coffee-mug {
-    margin-top: -6rem !important;
+    margin-top: -5rem !important;
     scale: 0.6 !important;
-    /* max-height: auto !important; */
-    gap: 0rem;
+    gap: 10rem;
   }
-  /* .coffee-decor {
-    top: -10rem !important;
-    /* scale: 0.5 !important; */
-  /* max-height: 1rem; */
-  /* } */
   .disclaimer {
-    top: -10rem !important;
+    top: 0rem !important;
   }
   .thought-header-inner .coffee-mug {
     width: 84px !important;
@@ -634,5 +673,124 @@
     padding-bottom: 0.9rem !important;
     font-size: 1.02rem !important;
     border-radius: 12px !important;
+  }
+}
+
+/* Project modal styles */
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 6, 4, 0.78);
+  backdrop-filter: blur(4px) saturate(1.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1.5rem;
+  transition: background 180ms ease;
+}
+.project-modal {
+  /* opaque modal surface so underlying page doesn't show through */
+  background: color-mix(in srgb, var(--bg, #fff) 94%, #ffffff 6%);
+  color: var(--text-main);
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(11, 8, 6, 0.18);
+  padding: 1rem 1.25rem 1.5rem;
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--border-color, rgba(0, 0, 0, 0.06)) 36%,
+      transparent
+    );
+}
+.project-modal__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+.project-modal__header {
+  display: block;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--border-color) 30%, transparent);
+  padding-bottom: 0.6rem;
+}
+.project-modal__header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.project-modal__actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.project-modal__meta {
+  margin: 0.6rem 0;
+  /* place tags left-aligned under the title instead of centered */
+  display: block;
+  text-align: left;
+  padding-left: 0.15rem;
+}
+.project-modal__content {
+  padding-top: 0.6rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.project-modal__content h1,
+.project-modal__content h2,
+.project-modal__content h3 {
+  color: var(--text-main);
+}
+.project-modal__content h1 {
+  font-size: 1.35rem;
+  margin-top: 0.6rem;
+}
+.project-modal__content h2 {
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
+.project-modal__content h3 {
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+.project-modal__content img {
+  display: block;
+  margin: 0.6rem auto;
+  max-width: 100%;
+}
+.project-modal .tags {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.project-modal .tag {
+  margin: 0;
+  display: inline-block;
+}
+
+/* small responsive tweaks */
+@media (max-width: 680px) {
+  .project-modal {
+    padding: 0.8rem;
+  }
+  .project-modal__header {
+    /* keep title full width on small screens */
+    width: 100%;
+  }
+  .project-modal__top {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+  .project-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
   }
 }

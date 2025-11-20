@@ -63,3 +63,24 @@ export async function loadProjects(): Promise<ProjectMeta[]> {
 
   return projects;
 }
+
+export async function getProjectContent(slug?: string): Promise<string | null> {
+  if (!slug) return null;
+  try {
+    // Vite supports ?raw to import file contents as string
+    const mod = await import(`../content/projects/${slug}/README.md?raw`);
+    // module default contains the raw string
+    const raw = (mod && (mod as any).default) ? (mod as any).default : (mod as any);
+    return String(raw);
+  } catch (err) {
+    // fallback: try a glob search (best-effort)
+    try {
+      const modules = import.meta.glob('../content/projects/**/README.md', {eager: true, query: '?raw', import: 'default'}) as Record<string, string>;
+      for (const [path, content] of Object.entries(modules)) {
+        if (path.includes(`/${slug}/README.md`)) return String(content || '');
+      }
+    } catch {}
+    console.warn('[projectsUtils] could not load README for', slug, err);
+    return null;
+  }
+}
