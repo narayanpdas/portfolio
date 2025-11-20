@@ -16,23 +16,23 @@ const Home: React.FC = () => {
             <div className="page-title page-title--center" style={{ fontFamily: "cursive" }}>
                 <h1>Welcome Traveler!</h1>
             </div>
-
-            <div className="coffee-mug">
-                <div className="coffee-mug__steam"></div>
-                <div className="coffee-mug__steam"></div>
-                <div className="coffee-mug__steam"></div>
-                <div className="coffee-mug__body">
-                    <div className="coffee-mug__face" aria-hidden="true">
-                        <span className="coffee-mug__eye coffee-mug__eye--left">
-                            <span className="coffee-mug__pupil" />
-                        </span>
-                        {/* <span className="coffee-mug__mouth" /> */}
-                        <span className="coffee-mug__eye coffee-mug__eye--right">
-                            <span className="coffee-mug__pupil" />
-                        </span>
+            <div className="coffee-mug-home">
+                <div className="coffee-mug">
+                    <div className="coffee-mug__steam"></div>
+                    <div className="coffee-mug__steam"></div>
+                    <div className="coffee-mug__steam"></div>
+                    <div className="coffee-mug__body">
+                        <div className="coffee-mug__face" aria-hidden="true">
+                            <span className="coffee-mug__eye coffee-mug__eye--left">
+                                <span className="coffee-mug__pupil" />
+                            </span>
+                            <span className="coffee-mug__eye coffee-mug__eye--right">
+                                <span className="coffee-mug__pupil" />
+                            </span>
+                        </div>
                     </div>
+                    <div className="coffee-mug__handle"></div>
                 </div>
-                <div className="coffee-mug__handle"></div>
             </div>
 
             <p style={{

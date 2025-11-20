@@ -568,16 +568,16 @@
     gap: 0rem;
   }
   .coffee-mug {
-    top: -7.5rem !important;
-    scale: 0.5 !important;
+    margin-top: -6rem !important;
+    scale: 0.6 !important;
     /* max-height: auto !important; */
-    gap: 0.1rem;
+    gap: 0rem;
   }
-  .coffee-decor {
-    /* top: 10rem !important; */
+  /* .coffee-decor {
+    top: -10rem !important;
     /* scale: 0.5 !important; */
-    max-height: 1rem;
-  }
+  /* max-height: 1rem; */
+  /* } */
   .disclaimer {
     top: -10rem !important;
   }
@@ -588,12 +588,10 @@
     margin-right: 0.4rem;
     transform: translateY(0) !important;
   }
-
   /* hide backdrop on very small screens to avoid layout crowding */
   .thought-header-inner .coffee-mug::before {
     display: none !important;
   }
-
   /* precise px-based handle positioning for small mug */
   .thought-header-inner .coffee-mug__handle {
     /* bring handle closer to mug on small screens */
