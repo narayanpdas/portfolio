@@ -1,7 +1,7 @@
 ---
 title: "HI Docs"
 description: "A RAG Based App, Designed to Talk with Documents."
-# source: "https://github.com/yourusername/sample-app-one"
+source: "https://github.com/narayanpdas/HI-Docs-"
 # demo: "https://sample-app-one.example.com"
 track: "https://x.com/realnarayan_"
 image: "content/projects/sample-app-1/assets/screenshot.svg"
@@ -12,10 +12,12 @@ date: "2025-11-01"
 
 ## TL;DR
 
-This tool solves the problem of 'information overload' by allowing users to chat directly with their files. Unlike standard RAG implementations, this project introduces a Tri-Level Search System, giving users control over the depth of the AI's research—whether they need a quick fact-check or a comprehensive synthesis of multiple documents.
+HIDocs is a high-performance web application engineered to facilitate semantic search and QA over unstructured documents. Built on FastAPI, it leverages the RAG (Retrieval-Augmented Generation) architecture to ground LLM responses in factual data.
+
+Unlike standalone LLMs which are prone to hallucinations, HIDocs ensures deterministic and verifiable outputs by retrieving context directly from the source material before generation.
 
 ## Key features
 
-- Simple chat-based UI for talking to documents.
-- Varying Search Options.
-- Document ingestion and indexing.
+- Utilizing FastAPI BackgroundTasks to handle heavy PDF parsing without blocking the main thread.
+- The chat engine uses WebSockets for real-time latency. It retrieves context chunks from ChromaDB and injects them into the LLM context window dynamically.
+- Strict validation using Pydantic to prevent runtime errors, with a clean separation of concerns (Ingestion, Embedding, Retrieval).
