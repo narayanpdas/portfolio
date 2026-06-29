@@ -9,12 +9,12 @@ type Props = {
     slug?: string;
     content?: string | null;
     source?: string;
-    demo?: string;
+    live_link?: string;
     track?: string;
     tags?: string[] | string;
 };
 
-const ProjectModal: React.FC<Props> = ({ open, onClose, title, content, source, demo, track, tags }) => {
+const ProjectModal: React.FC<Props> = ({ open, onClose, title, content, source, live_link, track, tags }) => {
     const modalRef = useRef<HTMLDivElement | null>(null);
 
     // Prevent background scroll while modal is open
@@ -60,7 +60,7 @@ const ProjectModal: React.FC<Props> = ({ open, onClose, title, content, source, 
                         )}
                     </div>
                     <div className="project-modal__actions">
-                        {demo && <a className="btn btn-primary" href={demo} target="_blank" rel="noopener noreferrer">Demo</a>}
+                        {live_link && <a className="btn btn-primary" href={live_link} target="_blank" rel="noopener noreferrer">live_link-link</a>}
                         {track && <a className="btn btn-primary" href={track} target="_blank" rel="noopener noreferrer">Track Progress</a>}
                         {source && <a className="btn btn-ghost" href={source} target="_blank" rel="noopener noreferrer">Source</a>}
                         <button className="btn btn-ghost" onClick={onClose} aria-label="Close">Close</button>
@@ -82,7 +82,13 @@ const ProjectModal: React.FC<Props> = ({ open, onClose, title, content, source, 
                                 <ReactMarkdown
                                     components={{
                                         img: ({ node, src, alt, ...props }) => (
-                                            <img src={String(src)} alt={String(alt)} loading="lazy" style={{ maxWidth: '100%' }} {...props} />
+                                            <img
+                                                className="project-modal__image"
+                                                src={String(src)}
+                                                alt={String(alt)}
+                                                loading="lazy"
+                                                {...props}
+                                            />
                                         ),
                                         a: ({ node, href, children, ...props }) => (
                                             <a href={href} target={String(href)?.startsWith('http') ? '_blank' : undefined} rel={String(href)?.startsWith('http') ? 'noopener noreferrer' : undefined} {...props}>

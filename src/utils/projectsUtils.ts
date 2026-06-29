@@ -4,7 +4,7 @@ export interface ProjectMeta {
   title?: string;
   description?: string;
   source?: string;
-  demo?: string;
+  live_link?: string;
   track?:string;
   image?: string;
   tags?: string | string[];
@@ -16,7 +16,7 @@ export async function loadProjects(): Promise<ProjectMeta[]> {
   const modules = import.meta.glob('../content/projects/**/README.md', 
     { eager: true,query:'?raw' ,import:'default'}) as Record<string, string>;
   const projects: ProjectMeta[] = [];
-  console.log('[projectsUtils] glob keys', Object.keys(modules || {}));
+  // console.log('[projectsUtils] glob keys', Object.keys(modules || {}));
  try {
     console.debug('[projectsUtils] glob keys', Object.keys(modules || {}));
 

@@ -79,8 +79,8 @@ const Projects: React.FC = () => {
                                         {p.source && (
                                             <a className="btn btn-ghost" href={p.source} target="_blank" rel="noopener noreferrer">Source</a>
                                         )}
-                                        {p.demo && (
-                                            <a className="btn btn-primary btn-small" href={p.demo} target="_blank" rel="noopener noreferrer">Demo</a>
+                                        {p.live_link && (
+                                            <a className="btn btn-primary btn-small" href={p.live_link} target="_blank" rel="noopener noreferrer">Live</a>
                                         )}
                                         {p.track && (
                                             <a className="btn btn-primary btn-small" href={p.track} target="_blank" rel="noopener noreferrer">Track Progress</a>
@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
                 title={selected?.title}
                 content={modalContent}
                 source={selected?.source}
-                demo={selected?.demo}
+                live_link={selected?.live_link}
                 track={selected?.track}
                 tags={selected?.tags}
             />

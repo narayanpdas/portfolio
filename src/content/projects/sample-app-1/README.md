@@ -10,13 +10,13 @@ order: 1
 date: "2025-11-01"
 ---
 
-## TL;DR
+# TL;DR
 
 HIDocs is a high-performance web application engineered to facilitate semantic search and QA over unstructured documents. Built on FastAPI, it leverages the RAG (Retrieval-Augmented Generation) architecture to ground LLM responses in factual data.
 
 Unlike standalone LLMs which are prone to hallucinations, HIDocs ensures deterministic and verifiable outputs by retrieving context directly from the source material before generation.
 
-## Key features
+# Key features
 
 - Utilizing FastAPI BackgroundTasks to handle heavy PDF parsing without blocking the main thread.
 - The chat engine uses WebSockets for real-time latency. It retrieves context chunks from ChromaDB and injects them into the LLM context window dynamically.

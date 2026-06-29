@@ -696,7 +696,8 @@
   max-width: 960px;
   width: 100%;
   max-height: 90vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(11, 8, 6, 0.18);
   padding: 1rem 1.25rem 1.5rem;
@@ -759,9 +760,16 @@
   margin-top: 0.4rem;
 }
 .project-modal__content img {
-  display: block;
-  margin: 0.6rem auto;
-  max-width: 100%;
+  display: block !important;
+  margin: 1rem auto !important;
+  max-width: 90% !important;
+  max-height: 600px !important;
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-modal .tags {
   display: flex;
