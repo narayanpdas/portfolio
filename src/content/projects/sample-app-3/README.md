@@ -29,4 +29,4 @@ Finding the right open-source issue is often harder than fixing it due to ecosys
 # Home Page :
 
 
-![System Design Overview](/portfolio/public/content/projects/sample-app-3/assets/screenshot.png)
+![System Design Overview](content/projects/sample-app-3/assets/screenshot.png)
